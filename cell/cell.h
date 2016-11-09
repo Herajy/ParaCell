@@ -8,7 +8,7 @@
 #ifndef CELL_H_
 #define CELL_H_
 
-#include "datatype.h"
+#include "util/datatype.h"
 
 class Cell
 {

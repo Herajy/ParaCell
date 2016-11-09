@@ -8,7 +8,7 @@
 #ifndef RESULTEXPORTER_H_
 #define RESULTEXPORTER_H_
 
-#include "datatype.h"
+#include "util/datatype.h"
 
 class ResultExporter
 {

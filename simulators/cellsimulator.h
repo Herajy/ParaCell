@@ -8,7 +8,7 @@
 #ifndef CELLSIMULATOR_H_
 #define CELLSIMULATOR_H_
 
-#include "cell.h"
+#include "cell/cell.h"
 
 class RandomNumberGenerator;
 

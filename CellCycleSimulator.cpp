@@ -8,11 +8,10 @@
 
 #include <iostream>
 
-#include "serialcellsimulator.h"
-#include "serialsimulatorsymetricdivision.h"
+#include "simulators/serialcellsimulator.h"
 
-#include "resultexporter.h"
-#include "parallelsimulator.h"
+#include "export/resultexporter.h"
+#include "simulators/parallelsimulator.h"
 
 #include <chrono>
 
@@ -25,7 +24,7 @@ using namespace std;
 typedef std::chrono::steady_clock StopWatch;
 
 //comment this line for serial simulation
-//#define PARASIM
+#define PARASIM
 
 //Symmetric division (df=0.5)
 //#define SYMDIVISION
@@ -72,47 +71,6 @@ int main() {
 
 		cout << "Running time: " << diff <<" s"<< endl;
 	}
-
-#elif  defined(SYMDIVISION)
-
-	  //serial simulation with symmetric division
-	   SerialSimulatorSymetricDivision* l_nCellSimulator=new SerialSimulatorSymetricDivision();
-
-		ResultExporter* m_pcResultExporter=new ResultExporter();
-
-
-	            //initialize the simulator
-		        l_nCellSimulator->InitSimulator();
-
-		        l_nCellSimulator->SimulateCell();
-
-		         //get the result matrix
-		         Matrix2D m_nmResultMatrix=l_nCellSimulator->GetResultMatrix();
-
-		         VectorDouble m_anTime=l_nCellSimulator->GetTime();
-
-		         //volume results
-		         VectorDouble m_anVolumeResult=l_nCellSimulator->GetCellularVolumeResult();
-
-		         VectorLong l_anFiringCount=l_nCellSimulator->GetFiringCount();
-
-
-		         //export volume
-		         m_pcResultExporter->ExportVolume(m_anTime,m_anVolumeResult,"volume.csv");
-
-		         //export firing count
-		         m_pcResultExporter->ExportFiringCount(l_anFiringCount,"FiringCount");
-
-		        //delete the simulation objects
-		        delete l_nCellSimulator;
-
-		        delete m_pcResultExporter;
-
-		        t2=clock();
-
-				float diff = ((float)t2-(float)t1)/CLOCKS_PER_SEC;
-
-				cout << "Running time: " << diff <<" s"<< endl;
 
 #else
 

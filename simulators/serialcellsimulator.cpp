@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-#include "randomnumbergenerator.h"
+#include "util/randomnumbergenerator.h"
 
 #include <math.h>
 

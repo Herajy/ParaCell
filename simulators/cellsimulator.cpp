@@ -7,7 +7,7 @@
 
 #include "cellsimulator.h"
 
-#include "randomnumbergenerator.h"
+#include "util/randomnumbergenerator.h"
 
 #include <iostream>
 
