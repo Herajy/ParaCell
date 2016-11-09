@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,36 +18,56 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ParaCell.cpp" />
+    <ClCompile Include="cell\cell.cpp" />
+    <ClCompile Include="export\resultexporter.cpp" />
+    <ClCompile Include="simulators\cellsimulator.cpp" />
+    <ClCompile Include="simulators\parallelsimulator.cpp" />
+    <ClCompile Include="simulators\serialcellsimulator.cpp" />
+    <ClCompile Include="util\randomnumbergenerator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cell\cell.h" />
+    <ClInclude Include="export\resultexporter.h" />
+    <ClInclude Include="simulators\cellsimulator.h" />
+    <ClInclude Include="simulators\parallelsimulator.h" />
+    <ClInclude Include="simulators\serialcellsimulator.h" />
+    <ClInclude Include="util\datatype.h" />
+    <ClInclude Include="util\randomnumbergenerator.h" />
+    <ClInclude Include="util\util.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{391A9E1F-9BC1-4201-BC90-3F4665A11356}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>cellcyclesimulator</RootNamespace>
+    <ProjectName>ParaCell</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -102,12 +122,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft SDKs\MPI\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSMPI_INC);$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft SDKs\MPI\Lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MSMPI_LIB64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>msmpi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -145,27 +165,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\src\cell.cpp" />
-    <ClCompile Include="..\src\CellCycleSimulator.cpp" />
-    <ClCompile Include="..\src\cellsimulator.cpp" />
-    <ClCompile Include="..\src\parallelsimulator.cpp" />
-    <ClCompile Include="..\src\randomnumbergenerator.cpp" />
-    <ClCompile Include="..\src\resultexporter.cpp" />
-    <ClCompile Include="..\src\serialcellsimulator.cpp" />
-    <ClCompile Include="..\src\serialsimulatorsymetricdivision.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\src\cell.h" />
-    <ClInclude Include="..\src\cellsimulator.h" />
-    <ClInclude Include="..\src\datatype.h" />
-    <ClInclude Include="..\src\parallelsimulator.h" />
-    <ClInclude Include="..\src\randomnumbergenerator.h" />
-    <ClInclude Include="..\src\resultexporter.h" />
-    <ClInclude Include="..\src\serialcellsimulator.h" />
-    <ClInclude Include="..\src\serialsimulatorsymetricdivision.h" />
-    <ClInclude Include="..\src\util.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

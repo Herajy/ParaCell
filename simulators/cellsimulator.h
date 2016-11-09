@@ -10,6 +10,9 @@
 
 #include "cell/cell.h"
 
+#include <time.h>
+
+
 class RandomNumberGenerator;
 
 class CellSimulator
