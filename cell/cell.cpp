@@ -9,7 +9,9 @@
 
 #include <iostream>
 #include <math.h>
+#include "import/SP_ImportSBML2Model.h"
 using namespace std;
+
 
 
 Cell::Cell():
@@ -32,6 +34,9 @@ Cell::~Cell() {
 
 void Cell::InitSpecies()
 {
+	SP_ImportSBML2Model l_cSBMLmodel;
+	l_cSBMLmodel.ReadFile();
+
 	//resize the vectors
 	m_asSpeciesName.assign(m_nSCount+1,"");
 	m_anInitState.assign(m_nSCount+1,0);

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="import\SP_ImportSBML2Model.cpp" />
     <ClCompile Include="ParaCell.cpp" />
     <ClCompile Include="cell\cell.cpp" />
     <ClCompile Include="export\resultexporter.cpp" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <ClInclude Include="cell\cell.h" />
     <ClInclude Include="export\resultexporter.h" />
+    <ClInclude Include="import\SP_ImportSBML2Model.h" />
     <ClInclude Include="simulators\cellsimulator.h" />
     <ClInclude Include="simulators\parallelsimulator.h" />
     <ClInclude Include="simulators\serialcellsimulator.h" />
@@ -122,13 +124,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(MSMPI_INC);$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSMPI_INC);$(SolutionDir);$(LIBSBML)/src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(MSMPI_LIB64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>msmpi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MSMPI_LIB64);$(LIBSBML)/build/src/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>msmpi.lib;libsbml.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
